@@ -11,9 +11,9 @@ import UIKit
 import RealmSwift
 
 class RealmUser: Object {
-    dynamic var email = ""
-    dynamic var userName = ""
-    dynamic var password = ""
+    @objc dynamic var email = ""
+    @objc dynamic var userName = ""
+    @objc dynamic var password = ""
     
     override static func primaryKey() -> String? {
         return "email"

@@ -24,8 +24,6 @@
 		4CAF8ACA1E0FC13D00ABFE0D /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAF8AC91E0FC13D00ABFE0D /* RxSwift.framework */; };
 		4CAF8ACC1E0FC14200ABFE0D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAF8ACB1E0FC14200ABFE0D /* RxCocoa.framework */; };
 		4CAF8ACE1E0FC14B00ABFE0D /* SkyFloatingLabelTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAF8ACD1E0FC14B00ABFE0D /* SkyFloatingLabelTextField.framework */; };
-		4CAF8AD01E0FC15100ABFE0D /* GSMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAF8ACF1E0FC15100ABFE0D /* GSMessages.framework */; };
-		4CAF8AD21E0FC15700ABFE0D /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAF8AD11E0FC15700ABFE0D /* RxDataSources.framework */; };
 		4CAF8AD41E0FC15C00ABFE0D /* RxOptional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAF8AD31E0FC15C00ABFE0D /* RxOptional.framework */; };
 		4CAF8AD61E0FC52A00ABFE0D /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF8AD51E0FC52A00ABFE0D /* SignUpViewModel.swift */; };
 		4CC7A75B1E0EA6B700D092FA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC7A7591E0EA6B700D092FA /* Realm.framework */; };
@@ -79,8 +77,6 @@
 		4CAF8AC91E0FC13D00ABFE0D /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		4CAF8ACB1E0FC14200ABFE0D /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		4CAF8ACD1E0FC14B00ABFE0D /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyFloatingLabelTextField.framework; path = Carthage/Build/iOS/SkyFloatingLabelTextField.framework; sourceTree = "<group>"; };
-		4CAF8ACF1E0FC15100ABFE0D /* GSMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSMessages.framework; path = Carthage/Build/iOS/GSMessages.framework; sourceTree = "<group>"; };
-		4CAF8AD11E0FC15700ABFE0D /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		4CAF8AD31E0FC15C00ABFE0D /* RxOptional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxOptional.framework; path = Carthage/Build/iOS/RxOptional.framework; sourceTree = "<group>"; };
 		4CAF8AD51E0FC52A00ABFE0D /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewModel.swift; path = Scenes/SignUp/SignUpViewModel.swift; sourceTree = "<group>"; };
 		4CC7A7591E0EA6B700D092FA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -98,11 +94,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CAF8AD01E0FC15100ABFE0D /* GSMessages.framework in Frameworks */,
 				4CC7A75B1E0EA6B700D092FA /* Realm.framework in Frameworks */,
 				4CC7A75C1E0EA6B700D092FA /* RealmSwift.framework in Frameworks */,
 				4CAF8ACC1E0FC14200ABFE0D /* RxCocoa.framework in Frameworks */,
-				4CAF8AD21E0FC15700ABFE0D /* RxDataSources.framework in Frameworks */,
 				4CAF8AD41E0FC15C00ABFE0D /* RxOptional.framework in Frameworks */,
 				4CAF8ACA1E0FC13D00ABFE0D /* RxSwift.framework in Frameworks */,
 				4CAF8ACE1E0FC14B00ABFE0D /* SkyFloatingLabelTextField.framework in Frameworks */,
@@ -243,8 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				4CAF8AD31E0FC15C00ABFE0D /* RxOptional.framework */,
-				4CAF8AD11E0FC15700ABFE0D /* RxDataSources.framework */,
-				4CAF8ACF1E0FC15100ABFE0D /* GSMessages.framework */,
 				4CAF8ACD1E0FC14B00ABFE0D /* SkyFloatingLabelTextField.framework */,
 				4CAF8ACB1E0FC14200ABFE0D /* RxCocoa.framework */,
 				4CAF8AC91E0FC13D00ABFE0D /* RxSwift.framework */,
@@ -423,13 +415,11 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/GSMessages.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxOptional.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SkyFloatingLabelTextField.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxOptional.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
 			);
 			outputPaths = (
 			);
@@ -621,7 +611,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cruz.Instagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -638,7 +628,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cruz.Instagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -655,7 +645,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cruz.InstagramTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Instagram.app/Instagram";
 			};
 			name = Debug;
@@ -673,7 +663,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cruz.InstagramTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Instagram.app/Instagram";
 			};
 			name = Release;
@@ -686,7 +676,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cruz.InstagramUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Instagram;
 			};
 			name = Debug;
@@ -699,7 +689,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cruz.InstagramUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Instagram;
 			};
 			name = Release;
