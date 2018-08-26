@@ -58,13 +58,14 @@ class SignUpViewModel: SignUpViewModelType {
         let userNameObservable = userNameChanged.asDriver().filterNil().asObservable()
         let passwordObservable = passwordChanged.asDriver().filterNil().asObservable()
         
-        let emailValidation = emailObservable.map { $0.isEmail }.asObservable()
-        let userNameValidation = userNameObservable.map { $0.isUserName }.asObservable()
-        let passwordValidation = passwordObservable.map { $0.isPassword }.asObservable()
+        let emailValidation = emailObservable.map { $0.isEmail }
+        let userNameValidation = userNameObservable.map { $0.isUserName }
+        let passwordValidation = passwordObservable.map { $0.isPassword }
         
-        let validObservable = Observable.combineLatest(emailValidation, passwordValidation, userNameValidation) {
-            return $0.0 && $0.1 && $0.2
+        let validObservable = Observable.combineLatest(emailValidation, userNameValidation, passwordValidation) {
+            return $0 && $1 && $2
             }.filter { $0 }
+        //
         
         self.presentButtonViewModel = validObservable.map { SignUpScene.ButtonViewModel(backgroundColor: $0 ? .black : .gray) }
             .asDriver(onErrorDriveWith: .empty())
