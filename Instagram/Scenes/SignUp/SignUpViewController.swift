@@ -26,8 +26,7 @@ class SignUpViewController: UIViewController {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.viewModel = SignUpViewModel()
-    
+        viewModel = SignUpViewModel()
     }
     
     override func viewDidLoad() {
@@ -37,17 +36,17 @@ class SignUpViewController: UIViewController {
         userNameTextField.selectedTitleColor = .black
         passwordTextField.selectedTitleColor = .black
         
-        self.signUpButton.rx.tap
+        signUpButton.rx.tap
             .bindTo(viewModel.signUpButtonDidTap)
             .addDisposableTo(disposeBag)
         
-        self.emailTextField.rx.text.bindTo(viewModel.emailChanged).addDisposableTo(disposeBag)
+        emailTextField.rx.text.bindTo(viewModel.emailChanged).addDisposableTo(disposeBag)
         
-        self.userNameTextField.rx.text
+        userNameTextField.rx.text
             .bindTo(viewModel.userNameChanged)
             .addDisposableTo(disposeBag)
         
-        self.passwordTextField.rx.text
+        passwordTextField.rx.text
             .bindTo(viewModel.passwordChanged)
             .addDisposableTo(disposeBag)
         
@@ -71,7 +70,6 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

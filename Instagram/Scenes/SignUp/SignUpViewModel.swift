@@ -50,9 +50,9 @@ class SignUpViewModel: SignUpViewModelType {
     private let disposeBag = DisposeBag()
     
     init() {
-        self.emailChanged = Variable("")
-        self.userNameChanged = Variable("")
-        self.passwordChanged = Variable("")
+        emailChanged = Variable("")
+        userNameChanged = Variable("")
+        passwordChanged = Variable("")
         
         let emailObservable = emailChanged.asDriver().filterNil().asObservable()
         let userNameObservable = userNameChanged.asDriver().filterNil().asObservable()
@@ -67,14 +67,14 @@ class SignUpViewModel: SignUpViewModelType {
             }.filter { $0 }
         //
         
-        self.presentButtonViewModel = validObservable.map { SignUpScene.ButtonViewModel(backgroundColor: $0 ? .black : .gray) }
+        presentButtonViewModel = validObservable.map { SignUpScene.ButtonViewModel(backgroundColor: $0 ? .black : .gray) }
             .asDriver(onErrorDriveWith: .empty())
         
         let signUpSuccessObservable = Observable.combineLatest(emailObservable, userNameObservable, passwordObservable, validObservable, resultSelector: { (email, userName, password, valid) -> SignUp.Request in
             return SignUp.Request(email: email, userName: userName, password: password)
         })
         
-        self.signedUp = signUpButtonDidTap
+        signedUp = signUpButtonDidTap
                         .withLatestFrom(signUpSuccessObservable)
                         .flatMapLatest({ (request) -> Observable<Void> in
                             return SignUpRealmStore.shared.signUp(request)
@@ -86,19 +86,19 @@ class SignUpViewModel: SignUpViewModelType {
 extension String {
     var isEmail: Bool {
         get {
-            return self.characters.count > 0
+            return characters.count > 0
         }
     }
     
     var isUserName: Bool {
         get {
-            return self.characters.count > 0
+            return characters.count > 0
         }
     }
     
     var isPassword: Bool {
         get {
-            return self.characters.count > 0
+            return characters.count > 0
         }
     }
 }

@@ -24,7 +24,7 @@ class SignUpViewControllerTests: QuickSpec {
             window = UIWindow()
             let bundle = Bundle.main
             let storyboard = UIStoryboard(name: "SignUp", bundle: bundle)
-            sut = storyboard.instantiateViewController(withIdentifier: SignUpScene.identifier) as! SignUpViewController
+            sut = storyboard.instantiateViewController(withIdentifier: SignUpScene.identifier) as? SignUpViewController
             
             window.addSubview(sut.view)
             RunLoop.current.run(until: Date())
@@ -61,19 +61,20 @@ class SignUpViewModelTypeSpy: SignUpViewModelType {
     var isSignedUpDidTap: Bool = false
     
     init() {
-        self.emailChanged = Variable("")
-        self.userNameChanged = Variable("")
-        self.passwordChanged = Variable("")
+        emailChanged = Variable("")
+        userNameChanged = Variable("")
+        passwordChanged = Variable("")
         
-        self.presentButtonViewModel = Observable
+        presentButtonViewModel = Observable
             .from([SignUpScene.ButtonViewModel(backgroundColor: .black)])
             .asDriver(onErrorDriveWith: .empty())
         
-        self.signedUp = Observable
+        signedUp = Observable
             .from([()])
             .asDriver(onErrorDriveWith: .empty())
         
-        signUpButtonDidTap.subscribe { (event) in
+        signUpButtonDidTap.subscribe { [weak self] event in
+            guard let `self` = self else { return }
             self.isSignedUpDidTap = true
         }.addDisposableTo(DisposeBag())
     }
