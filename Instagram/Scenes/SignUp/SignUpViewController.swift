@@ -13,7 +13,6 @@ import RxCocoa
 import RxSwift
 
 class SignUpViewController: UIViewController {
-
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var userNameTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
@@ -37,47 +36,35 @@ class SignUpViewController: UIViewController {
         passwordTextField.selectedTitleColor = .black
         
         signUpButton.rx.tap
-            .bindTo(viewModel.signUpButtonDidTap)
-            .addDisposableTo(disposeBag)
+            .bind(to: viewModel.signUpButtonDidTap)
+            .disposed(by: disposeBag)
         
-        emailTextField.rx.text.bindTo(viewModel.emailChanged).addDisposableTo(disposeBag)
+        emailTextField.rx
+            .text
+            .bind(to: viewModel.emailChanged)
+            .disposed(by: disposeBag)
         
         userNameTextField.rx.text
-            .bindTo(viewModel.userNameChanged)
-            .addDisposableTo(disposeBag)
+            .bind(to: viewModel.userNameChanged)
+            .disposed(by: disposeBag)
         
         passwordTextField.rx.text
-            .bindTo(viewModel.passwordChanged)
-            .addDisposableTo(disposeBag)
+            .bind(to: viewModel.passwordChanged)
+            .disposed(by: disposeBag)
         
         viewModel.presentButtonViewModel
             .drive(onNext: { [weak self] viewModel in
-            guard let `self` = self else { return }
-            self.signUpButton.backgroundColor = viewModel.backgroundColor
-        }).addDisposableTo(disposeBag)
+                guard let `self` = self else { return }
+                self.signUpButton.backgroundColor = viewModel.backgroundColor
+            })
+            .disposed(by: disposeBag)
         
         viewModel.signedUp
-            .drive(onNext: { [weak self] signedIn in
+            .drive(onNext: { [weak self] signedUp in
                 guard let `self` = self else { return }
                 self.performSegue(withIdentifier: ListFeedsScene.segue, sender: nil)
-                
-        }).addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

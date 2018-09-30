@@ -86,19 +86,19 @@ class SignUpViewModel: SignUpViewModelType {
 extension String {
     var isEmail: Bool {
         get {
-            return characters.count > 0
+            return count > 0
         }
     }
     
     var isUserName: Bool {
         get {
-            return characters.count > 0
+            return count > 0
         }
     }
     
     var isPassword: Bool {
         get {
-            return characters.count > 0
+            return count > 0
         }
     }
 }

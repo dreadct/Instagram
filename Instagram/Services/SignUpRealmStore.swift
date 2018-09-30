@@ -41,7 +41,6 @@ class SignUpRealmStore: SignUpAPI {
                 observer.onError(error)
             }
             
-            
             return Disposables.create {
                 
             }

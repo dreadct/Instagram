@@ -60,6 +60,8 @@ class SignUpViewModelTypeSpy: SignUpViewModelType {
     
     var isSignedUpDidTap: Bool = false
     
+    let disposeBag: DisposeBag = DisposeBag()
+    
     init() {
         emailChanged = Variable("")
         userNameChanged = Variable("")
@@ -73,9 +75,11 @@ class SignUpViewModelTypeSpy: SignUpViewModelType {
             .from([()])
             .asDriver(onErrorDriveWith: .empty())
         
-        signUpButtonDidTap.subscribe { [weak self] event in
-            guard let `self` = self else { return }
-            self.isSignedUpDidTap = true
-        }.addDisposableTo(DisposeBag())
+        signUpButtonDidTap
+            .subscribe { [weak self] event in
+                guard let `self` = self else { return }
+                self.isSignedUpDidTap = true
+            }
+            .disposed(by: disposeBag)
     }
 }
